@@ -199,9 +199,9 @@ public class PlayerController implements Initializable {
     
     private void handleReady() {
         Duration duration = mediaPlayer.getTotalDuration();
-        lengthText.setText(duration.toString());
+        lengthText.setText(String.format("%.01f", (float) duration.toMillis()));
         Duration ct = mediaPlayer.getCurrentTime();
-        currentText.setText(ct.toString());
+        currentText.setText(String.format("%.01f", (float) ct.toMillis()));
         currentVisualizer.start(numBands, vizPane);
         timeSlider.setMin(0);
         timeSlider.setMax(duration.toMillis());
